@@ -1,0 +1,263 @@
+laravel : it is most trending php framework in the market
+
+Other frameworks
+*****************
+1. laravel
+2. codeIgnitor
+3. yii
+4. cakephp
+5. fuelphp
+6. phalcon
+7. zend
+8. symphony
+9. slimPHP
+10. zwave
+...
+...
+...
+...
+ 
+
+why laravel
+***********
+1. very very easy
+2. Highly upgradable,packages
+3. highly scalable
+4. open source : you need not to spend single paisa at all.
+5. highly secure
+6. largest community in the world, github.com, laracast.com, stackoverflow
+
+who is founder of laravel:-
+taylor otwell
+
+one cannot complete laravel in one to 7 Birth.
+Illuminate\Package
+
+
+Example in order to mail laravel will use phpmailer package.
+laravel ---> phpmailer overview
+phpmailer ----> github repository ---> readme.md file
+carbon ----> Date and time manage ---> readme.md file
+
+Understand why we require framework?
+************************************
+1. Consider I want to chicken Biryani, now you have two options
+	1. goto some tundey kababi and pay amount and eat done
+	2. Market ---> Egg ---> Chick --->  In Big Chicken -->
+	-----> cut into pieces --> cook ---> eat.
+framework : it is collection of packages, classes, methods and 
+inbuilt functionalities.
+
+How to install laravel
+**********************
+1. make sure you have composer installed.
+	open cmd ---> type ---> composer -v 2.x
+	the composer is installed or else not installed.
+
+goto getcomposer.org
+     download composer (.exe)
+     
+what is composer:-
+
+1. composer is a dependency manager tool.
+2. composer can be used to install any new package and upgrade to any new package.
+3. All the pacakages are donwloaded from packagist.org server.
+4. composer is a type package manager tool.
+
+composer is same as pip in python
+composer is same as npm in node
+composer is same as apt in linux
+
+How to install laravel
+**********************
+1. using laravel/installer
+	composer global require laravel/installer (first-time)
+	laravel new <project-name>  (any-time)
+
+2. using composer create-project command
+	composer create-project --prefer-dist laravel/laravel <project-name> (any-time)
+
+How to run laravel application
+*****************************
+goto inside project-folder
+1. artisan file : anonymous file
+   .env file : anoynous file
+
+php artisan serve
+	    [commmand Argument]
+artisan : command line argument tool for laravel
+
+laravel like other framework follow strict design pattern.
+All the 23-desing pattern are implemented in laravel
+that is why strong knowledge of oops is required.
+
+laravel like other framework uses MVC Concept.
+M:model 
+******
+	All the database related part, and database Query logic
+	like database connection, database Query, Querybuilder(Eloquent
+	) 
+	every thing comes under,model.
+	type of class (core file)
+V:views
+*******
+	Views Refers the Templates or HTML views, like form,
+	about us, contacts us, etc etc.
+	Views are responsible to handling the, presentation part 
+	of web-app or you can views are resposible for 
+	front end
+	All the files related to front end are related to views.
+	Every views file in laravel is called blade(any-name.blade.php) file.
+	it is type hybrid file
+
+C:controller : 
+**************
+
+	it is also a type of class (core file)
+	controller is middle man, or intermediate component
+	B/w views and model
+
+	How it works:-
+	************
+	Any Request coming from views it will send controller and
+	controller with then send to, model to update the db.
+	
+     Similary any changes in db will seen by model and send the controller to render in thview.
+
+Postmortem of laravel
+*********************
+Directory Structure of laravel
+1. Projectfolder :<root-folder>
+		It is complete Package of Laravel Collections.
+		The name of project is actually a clone of project download by composer 
+		from packagist.org with packagename laravel/laravel
+		The name of folder depends what name has been given when installed during, installation.
+		via composer.
+		
+		This the main folder.
+		Everything you will find inside this only.
+
+Folder structure inside laravel Project folder
+***********************************************
+	1. app folder:	
+			this is main folder where entire application bussiness logic is put
+			like, all middleware(security), all service provider                        (RouteServiceProvider,SchemaServiceProvider), all controller, all models,
+			all Exception, packages path(kernel.php), all console command are found 
+			here, the beauty of this folder each file in folder is core file and uses 
+			strict concept of oops and the file made inside these folders will be class files
+			only full of serveral namespaces.
+
+			The Request from public/index.php will be send to composer.json from where
+			psr-4 path we acquired, as app and will be send to bootstrap/app.php to bootstrap
+			the application which is,registered inside kernel.php and kernel.php will return
+			the package path Illuminate/framework/src path which will used by
+			vendor/autoload.php to handle any type of operation distributed according to the 
+			package.
+			
+			1. console : This is the folder that, contains all the files related to user
+				defined console commands,which is generated by user by using
+				php artisan make:command <command-name>
+
+			    	1. kernel.php file
+				2. commands Folder : it will contain all the important class file
+					for the user-defined class now this user defined class
+					can have a logic which may require, laravel inbuilt package,
+					for any database operation like Eloquent for this you will 
+					need package path to vendor/Eloquent so for sapi name = 'cli-server'
+					who will provide, package path here kernel.php will provide
+					the path to vendor/autoload.php for, cli-server
+
+					user-defined-class command files
+					...
+					...
+					...
+
+				3. Exception : This folder contains any type of, Exceptions which 
+						need to be handle at application level globally.
+						Handler.php : This is perticular file where
+						we register, every type of Exception need to be handled.
+						we can use try catch blocks if not each logic 
+						is already b/w try and catch block which is managed
+						by laravel internally.
+
+				what is meaning of csrf token?
+				csrf : cross site request forgery.
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
