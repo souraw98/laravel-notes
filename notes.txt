@@ -182,6 +182,182 @@ Folder structure inside laravel Project folder
 
 				what is meaning of csrf token?
 				csrf : cross site request forgery.
+				
+				4. http :- This folder contains all the controller
+					middlewares, Kernel.php
+					 
+					 middleware : It contains all the middleware
+					 related to security which will be automatically,
+					 Running at Request and Response before sending
+					 to controller.
+					 
+					 Example predefined, middleware
+					 1. VerifyCsrfToken
+					 2. TrustProxies
+					 3. EncryptCookies
+					 4. TrustHosts
+					 5. TrimString
+					 6. RedirectIfAuthenticated
+					 ...
+					 ...
+					 ...
+										[ Filter ]
+					 Request -------> | Middleware | ------> Response
+					 Request <--------| Middleware | <-----Response
+										[ Filter ]
+					 
+					 You can make your own custom middleware using
+					 command 
+					 php artisan make:middleware <middleware-name>
+					 
+					 Controller : All the controller will reside, 
+					 inside controllers Folder only.
+					 
+					 
+				5. Models :- Models are responsible for managing
+				Query logical and database related information,
+				And Joins/Relationships.
+				
+				All Models, placed are, Integral Part of MVC.
+				
+				What is Eloquent? : Query Builder name is Eloquent.
+				it is type of package and found inside, vendor.
+				
+				What is Doctrine?
+				It is name of ORM, Package
+				
+				Do you remeber :-
+				1. mysqli_fetch_objects()
+				
+				user   ----------> Class
+					id ----------> Attribute :instance Variable.
+					name ---------> Attribute : intance variable.
+					class --------> Attribute : instance variable.
+					
+				What is ORM? 
+					Object Relationships Mapping(RDBMS) 
+					It is relational, Database.
+					All the Table Schema, Database Schema will mapped
+					with class and Object.
+					
+					
+					How to Convert Student Schema in ORM?
+					Class Student{
+					
+					private $name;
+					private $class;
+					private $email;
+					private $id;
+					private $marks;
+					
+					public function add(){
+						// Insert Logic
+					
+					}
+					
+					public function update(){
+						
+						//Update Logic
+					
+					}
+					
+					public function delete(){
+						//Delete Logic
+					}
+					
+					}
+					
+					**************
+					Why to use ORM?
+					***************
+					
+					It has inbuilt Schema design, which enable 
+					easy setup of joins without writing the Complex
+					Queries these are called as relationships.
+					
+					We will perform postmortem on relationship.
+					
+					************************
+					Types of relationships
+					************************
+					1. one-to-many.
+					2. many-to-many.
+					3. inverse.
+					4. one to one.
+					5. polymorphic.
+					
+					
+					6. Providers:-
+						These contains All Class for service providers.
+						These Service Provides will be used to run 
+						any services, in bootstrapping.
+						
+						Eg: All the Authentication service
+						will be managed by, AuthServiceProvider
+						
+						SchemaServiceProvider : All the Database
+						Related Schema Services will be Applied
+						Here
+						
+						RouteServiceProvider : All the custom Routes,
+						And Routes will be registered here.
+						
+				
+				What is use of kernel.php in middleware?
+				1. When we create any middleware, we need to register
+					the Custom Middleware Path to Kernel.php
+					then only it will Run.
+				
+					
+				bootstrap : It is most Important Folder with file name app.php
+				located inside this,it will bootstrap(bootload) the Entire Application, So that EveryR equest can enter, app folder
+				
+				It is Core Part of Laravel Framework.
+				
+					Cache : generally cache is used, to optimise the Performance
+					You might knowing, cache Management
+					
+					
+					In Memory
+					Process 1 ---------[Cache Memory]----------> Memory (Original Source)
+					
+					Ram Execution <----------------[Cache if not found]----> Original Memory
+					
+					Images : Link
+					
+					First Time Images Laod time 
+					Next Time Internet Off Images Load
+					Browser will cache them
+					
+					Inside bootstrap folder we have cache folder
+					There may n no of classes or packages running parallely
+					Model A and Model B.
+					
+					Server ---> Traffic --->
+					1 ---> Model A 
+					2 ---> Model B
+					3 ---> Model A 
+					4 ---> Model A
+							Model A Copy ----> Cache Memory
+							Request is directly Proportional to caching
+							
+					There is one problem with cache?
+						1. 
+						
+						Model A Cache 
+						Model A Some new Data added or some new path Added.
+						then we require to clear cache.
+						
+						php artisan cache:clear
+						
+						
+				2. Config Folder : This Folder will contain,
+				
+				
+					
+					
+				
+				
 
 
 
