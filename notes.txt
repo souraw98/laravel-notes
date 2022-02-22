@@ -351,7 +351,130 @@ Folder structure inside laravel Project folder
 						php artisan cache:clear
 						
 						
-				2. Config Folder : This Folder will contain,
+				2. Config Folder : This Folder will contain, Important configuration
+					or settings, it is, same as settings.php but all the different types 
+					of settings has been classified inform of of different files
+					like 
+					All the settings and configuration are used from config folder
+					which are not configured at .env
+					There may a chance that, few settings may be common for .env and config folder
+					important config files
+					app.php  : Application Configurations.
+					auth.php : Authentication Configurations.
+					broadcasting.php : Broadcasting Configurations.
+					cache.php : Cache Configurations
+					cors.php : cross origin resource sharing policy settings.
+					database.php : All the database Configurations
+					filesystems.php : All the Uploaded files will be stored here.
+					hashing.php : All the hashing Algorithm, will be stored here. 
+					logging.php : All the cache, logs error logs will be confgured.
+					mail.php : if you want to send and use smtp mail settings the we go for,
+							   we use mail.php.
+					queue.php : it will contains settings to run multiple process related to aws, 
+								beanstack, redis etc.
+					sanctum.php : NA
+					services.php : All the settings Related to service providers.
+					session.php : All the settings related to, session drivers etc,
+					view.php : All the settings related to, views.
+					
+					database : 
+						1. factories : Design Pattern ---> Factory Design Pattern, 
+									   here we create the Different Objects in Bulk.
+						2. migrations : Here we create table schema, and as soon we 
+										enter the command php artisan migrate
+										Table schema is created,
+						3. seeders : it refers to seeds (Records) which can be generated inside 
+									  database in just one second
+									  You can upload lakh lakh of data using seeders
+									  
+									  For Eg:-
+									  Ecommerce : we can use faker module to generate fake data.
+									  
+									  
+					public : it is folder where all the request are forwarded, it acts as a entry 
+					point to, Application such that entire request goes inside public/index.php
+					file.
+					
+					1. htaccess : Apache Handler file with important, configuration
+								  with different setting,security, environment , rewrite Rules
+								  Required to run laravel Application.
+					2. robot.txt : it is special file used for SEO, and Blogging google crawlers
+						or search Engine will scan for robot.txt file only.
+					3. index.php : It is main file which acts as a, entry point to the application.
+					4. favicon : it laravel favicon icon.
+					
+					
+					Why name public ?
+					it refers to public_html in the web-hosting (web-server)
+					
+					It provides, security due to which use can move / forward in the url 
+					but not backward suppose if index.php was not inside, public folder
+					and this file would have been placed parallely to app,bootsrap,config,resources,
+					database,... so if index.php file is deleted, then all the folder structure 
+					would be visible and this could lead to security threat and hacking of the
+					application so inorder to protect this we use .htaccess with forbidden error
+					Options -Indexes : permission denied
+					Options +Indexes : Access 
+					
+					Suppose we dont have, index.php about.php home.php xyz.php 404.php
+					
+					DirectoryIndex index.php about.php home.php xyz.php 404.php
+									[0]      [1]       [2]      [3]      [4]
+									
+									
+									
+									
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+									  
+									  
+									  
+									  
+									  
+									  
+									  
+									  
+									  
+									  
+						
+						
+						
+						
+						
+
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
 				
 				
 					
