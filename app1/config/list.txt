@@ -1,0 +1,25 @@
+ Volume in drive C has no label.
+ Volume Serial Number is 3AA0-075E
+
+ Directory of C:\laragon\www\laravel\app1\config
+
+22-02-2022  08:45    <DIR>          .
+11-02-2022  10:46    <DIR>          ..
+11-02-2022  10:45             9,418 app.php
+11-02-2022  10:45             3,665 auth.php
+11-02-2022  10:45             1,711 broadcasting.php
+11-02-2022  10:45             3,274 cache.php
+11-02-2022  10:45               846 cors.php
+11-02-2022  10:45             5,054 database.php
+11-02-2022  10:45             2,282 filesystems.php
+11-02-2022  10:45             1,572 hashing.php
+22-02-2022  08:45                 0 list.txt
+11-02-2022  10:45             3,565 logging.php
+11-02-2022  10:45             3,577 mail.php
+11-02-2022  10:45             2,906 queue.php
+11-02-2022  10:45             2,289 sanctum.php
+11-02-2022  10:45               950 services.php
+11-02-2022  10:45             7,041 session.php
+11-02-2022  10:45             1,053 view.php
+              16 File(s)         49,203 bytes
+               2 Dir(s)  171,825,840,128 bytes free

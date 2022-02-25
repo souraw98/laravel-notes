@@ -420,10 +420,235 @@ Folder structure inside laravel Project folder
 					
 					DirectoryIndex index.php about.php home.php xyz.php 404.php
 									[0]      [1]       [2]      [3]      [4]
+												
+					Resources : This folder is respsonsible for assests(
+					images,js,css,icons,favicons,audio,vedio,langauges,views,html pages,blade files...)
+						
+					This folder contains, pre-compiled files of js,css, and other files.
+					SASS : simple Auwesome Style sheet,(Programmable css, loops, keywords
+					varaibles...)
+					
+					when you run single command all the css,js, and Other files will
+					generated a single app.js or single app.css so and will 
+					be generated inside public/css or public/images or public/icons,
+					public/fonts....
+					
+						1. css  : pre-compiled css
+						2. js  :  pre-compiled js
+						3. lang : All the langauges, folder
+						4. views : welcome.blade.php : 
+									php artisan serve landing from this path only.
 									
 									
 									
-									
+					
+					What will you make multi-lingual site ?
+					
+					1. in order to make a application which support multiple
+					langauge what you have to do, is inside resource folder,
+					we have lang folder inside lang / en /
+					we have multiple files for validation, paginations, rules...
+					what will happen if we want to change the, langauge content
+					from en to hindi or en to french or en to german
+					
+					lang
+					  |-
+						|-en
+							validation.php 
+								return [
+								
+								'alpha' => 'The :attribute must contain only letter'
+								
+								];
+						|-hindi
+							validation.php 
+								return [
+								
+								'alpha' => 'Is :attribute mey letter hona chaiye'
+								
+								];
+						|-german
+						|-french
+					
+					
+					Routes:-
+					This folder contains all the url mapped with the resources.
+					using http methods
+					
+					Route::get('/users',function(){
+						return view('users');
+					});
+				
+					Route::get() : Direct 
+					Route::post() : with csrf token
+					Route::put() : with csrf token + _method = PUT.
+					Route::patch() : with csrf token + _method = PATCH.
+					Route::Delete() : with csrf token + _method = DELETE.
+							
+					1. web.php : All url related to wep-app.
+					2. api.php : All the Api will be used by api.php.
+					3. channel.php : All the BroadCasting Routes (Network, webshockets,)
+					4. console.php : we can make our own command using php artisan
+									 if we want to make our own routes or urls for console, in console.php.
+									 
+					Lets a Build Few Routes, using web.php inside Routes
+
+					Laravel Directory Structure for Routes is different in version
+					less than <=5.8
+					
+					app
+					 |---> Routes.
+					 
+					>=5.8.+ x.version.
+					
+					app
+					Routes.
+					
+					
+					
+How to create Api in laravel
+****************************
+1. using Controller,and models
+2. using resources : Route::resource('AnyResource');
+	How to see list of routes
+	**************************
+	php artisan route:list
+	
+						 
+How to work with Query Builder:-
+
+1. $user = User::all() : select * from users;
+2. $user = User::find(id);
+3. $user = User::find()->where()->get()
+
+4. 	$user = new User();
+	$user->name = 'some name';
+	$user->email = 'some@gmail.com';
+	$user->pass = '1234';
+	$user->save();
+
+5. $user = User::find($id);
+   $user->name = 'new-name';
+   $user->email='new@email.com';
+   $user->pass = 'new@password';
+   $user->save();
+   
+6. $user = User::find($id);
+   $user->delete();
+   
+  
+Lets us create a Model
+************************
+php artisan make:model <model-name>
+php artisan make:model Student
+
+Once Model is Ready? 
+We need a Migration:-
+php artisan make:migration create_table_for_students
+
+We need to Set Up Database Connections:-
+goto .env and add the values like
+hostname,
+username,
+password,
+dbname
+
+Once database connection is ready we need to run first migrations.
+Why we need to run migrations:-
+1. because laravel maintain, few intial tables like, migrations,users,passwords,session,
+   failed_password tables.
+   
+   php artisan migrate --pretend : to show the Query of migrations
+   php artisan migrate:status : to see current migration status.
+   php artisan migrate : all the migrations and table schema will executed.
+   
+   Note :: migrations hold the table schema, and models hold the data.
+   
+   
+  step 1: php artisan make:migration create_table_student
+		goto database/migration/create_table_student.php 
+		
+		public function up(){
+		
+			Schema::create('student', function (Blueprint $table) {
+            
+            $table->id();
+            $table->string('name',191);
+            $table->string('email',191)->unique();
+            $table->string('mobile',20)->nullable();
+            
+        });
+		
+		}
+  
+  
+		public function down() //migrate:rollback
+		{
+			Schema::dropIfExists('student');
+		}
+					
+				
+		php artisan migrate
+		Migrations done succesfully.
+		Now create some dummy record in table student.
+		
+		
+		How to create model
+		********************
+		php artisan make:model <Student>
+		Model created successfully.
+		
+		goto folder app/models/Student.php
+		
+		We have to create Resource 
+		**************************
+		php artisan make:resource <Student>
+		Resource created successfully.
+		
+		A Resource is like controller, which all ready methods.
+		goto app/controller/Student
+		
+		php artisan make:controller StudentController --resource
+		app/http/controller/StudentController.php
+		
+		index : show the data.
+		create : create the form.
+		store : insert the data.
+		show : single record with some-id.
+		edit : form for edit record.
+		update : update the data.
+		destroy : delete the record. 
+		
+		For Api :-
+		1. get,put,delete,post
+		   
+		   get : index all  
+		   get : show single 
+		   post : store
+		   put : update
+		   delete :destroy
+		   
+		   
+		We have to create Route for Resource:-
+		 use App\http\Controller\StudentController; //namespaces
+		 
+		1. Route::resource('/student','StudentController');
+		php artisan route:list -c 
+		
+		// Route::resource('/students','\App\Http\Controllers\StudentController');
+		//or
+		Route::resource('/students',StudentController::class);
+		
+		
+					
+					
+					
+					
+					
+					
+
+
+					
 					
 					
 					
