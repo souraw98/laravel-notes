@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \App\Models\Student;
+
+
 
 class StudentController extends Controller
 {
@@ -13,7 +16,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        $student = Student::all();
+        return response()->json($student);
     }
 
     /**
@@ -34,7 +38,43 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //Insert the Record to the database
+
+        try{
+
+            $student = new Student();
+            $student->name = $request->name;
+            $student->email = $request->email;
+            $student->mobile = $request->mobile;
+
+            if($student->save()){
+                $response = [
+                    'code'=>200,
+                    'message'=>'Record inserted Sucessfully',
+                    'status'=>true,
+                    'data'=>[
+                       'id'=> $student->id
+                    ],
+                    'error'=>false
+                 ];
+                return response()->json($response);
+            }
+            else{
+                throw new \Exception();
+            }
+            
+        }catch(\Exception $e){
+            $response = [
+                'code'=>201,
+                'message'=>'Record not inserted Sucessfully',
+                'status'=>false,
+                'data'=>[],
+                'error'=>$e->getMessage()
+
+             ];
+            return response()->json($response);
+        }
+        
+    
     }
 
     /**
@@ -45,7 +85,9 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        //show single record
+        $student = Student::find($id);
+        return response()->json($student);
+       
     }
 
     /**
@@ -68,7 +110,43 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //update the singe record
+        try{
+
+            $student = Student::find($id);
+
+            $student->name = $request->name;
+            $student->email = $request->email;
+            $student->mobile = $request->mobile;
+
+        
+            if($student->save()){
+
+                $newStudent = Student::find($id);
+
+                $response = [
+                    'code'=>200,
+                    'message'=>'Record Updated Sucessfully',
+                    'status'=>true,
+                    'data'=> $newStudent,
+                    'error'=>false
+                 ];
+                return response()->json($response);
+            }
+            else{
+                throw new \Exception();
+            }
+            
+        }catch(\Exception $e){
+            $response = [
+                'code'=>201,
+                'message'=>'Record not updated Sucessfully',
+                'status'=>false,
+                'data'=>[],
+                'error'=>$e->getMessage()
+
+             ];
+            return response()->json($response);
+        }
     }
 
     /**
@@ -79,7 +157,7 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //delete the record
+        print_r($id,'Delete Method isRunning');
         
     }
 }

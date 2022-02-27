@@ -640,6 +640,23 @@ Why we need to run migrations:-
 		Route::resource('/students',StudentController::class);
 		
 		
+		Note : get_student_data : snake case
+		     : getStudentData :camel 
+			 : GetStudentData : parscal 
+			 : get-student-data : kebab case
+			 
+		if you are using model to table schema:-
+		singular ---> plural 
+		Model -----> Models 
+		student -----> Students
+		StudentResult ---> student_results
+		
+		custom naming convetion : model ---> protected $table='<any-name-any-case>';
+		
+		
+		
+		
+		
 					
 					
 					
