@@ -154,10 +154,10 @@ class StudentController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     */
+     */    
     public function destroy($id)
     {
-        print_r($id,'Delete Method isRunning');
+        print_r($id,'Delete Method is Running');
         
     }
 }

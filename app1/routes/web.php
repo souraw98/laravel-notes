@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use \Symfony\Component\HttpFoundation\Request;
+use \App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +16,15 @@ use \Symfony\Component\HttpFoundation\Request;
 */
 
 Route::get('/', function () {
-    //return view('welcome');
-    // return  "Hello world from Routes web.php";
+    return view('layout.master');
 });
+
+Route::get('/post/create', function () {
+    return view('addpost');
+});
+
+Route::post('/post/store',[PostController::class,'store']);
+
 
 
 Route::get('/login',function(){

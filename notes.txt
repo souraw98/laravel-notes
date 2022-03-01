@@ -698,6 +698,56 @@ Why we need to run migrations:-
 		1. directive @
 		2. Blade Tags. {{}}
 		
+		How to use DB Facades Query Builder
+		************************************
+		Create a Project Based on Slug just like Wordpress where used can create the post.
+      and view the description.
+		1. Add the validation, using javascript and your url must be unique or slug must 
+			be unique.
+      2. User should be able to view the post when he click on the title.
+	   3. slug should be replaced by - instead of [space].
+ 
+	  What is SQL Injections:-
+	  SQL injection is attack where a hacker uses to exploit your dynamic application.
+	  Here, user will write the Query, in such a way that,it becomes valid for sql 
+	  Engine or database, and return true for that perticular Query which would 
+     result the expression to be true. due to which user can easily 
+     login/do some sort of activity.
+
+	  for eg:-
+	  select * from user where email='$email' and password='$password';
+     $email = 'drop database <database-name>';
+
+   1. Create the migration using command 
+		php artisan make:migration create_table_posts
+      
+   2. goto database/migration/create_table_posts
+
+		1. up method: and down method
+		 
+		Schema::create('posts', function (Blueprint $table) {
+            $table->id();
+            $table->string('title',191);
+            $table->string('slug',191)->unique();
+            $table->text('description');
+            $table->timestamps();
+        });
+    
+      2. down method:
+		
+		Schema::dropIfExists('posts');
+    3. Run migration : php artisan migrate
+
+	 Working with layouts in Laravel:-
+	 *********************************
+	 header
+     footer
+
+
+
+
+
+
 		
 		
 		
