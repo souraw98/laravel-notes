@@ -653,6 +653,50 @@ Why we need to run migrations:-
 		
 		custom naming convetion : model ---> protected $table='<any-name-any-case>';
 		
+		How to work with view and How to pass data to the view
+		and use view route
+		
+		How to use, view Route?
+		***********************
+		
+		step-1: go-to resources/views/hello.blade.php
+			write Some code using blade tags, {{$name}} <?php echo $name; ?>
+		                                          |
+												  |
+												  blade Engine Converts These blade
+												  Tags to php tags.
+												  
+												  
+		step-2 : Inorder to load, view to some url we maka route,
+				1. view Route : we will make route for the view.
+				2. Route view : we will return the view according to the given route.
+				
+		
+		What are place holder in routes:-
+	    In Route we have uri-segement now this uri-segement this can be static or dynamic
+		
+		localhost:8000/student : static Route
+		localhost:8000/student/1 : dynamic Route
+							   |
+							   placeholder
+									1. medatory {anyname} : if dont pass it will give error
+									2. optional  {anyname?} : you pass or not
+												  
+		PlaceHolder Matching :- id : mendatory : we can regex.
+		
+		Data passing to view
+		1. from Route 
+		2. from Controller
+		
+		1. using Array format : ['name'=>'ravi'] ---> $name 
+		2. using compact : compact('name') => $name
+		3. using with  : with('name','ravi'); => $name
+		
+		
+		Blade Directive:-
+		The Blade Engine Support two things 
+		1. directive @
+		2. Blade Tags. {{}}
 		
 		
 		
